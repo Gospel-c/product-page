@@ -1,0 +1,163 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid hsl(220, 14%, 85%);
+    padding: 22px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+
+.nav-item {
+    font-family: "Kumbh Sans", sans-serif;
+    color: hsl(219, 9%, 45%);
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-item:hover::before {
+    content: "";
+    position: absolute;
+    background-color: #FF7E1B;
+    width: 100%;
+    height: 3px;
+    top: 55px;
+    
+}
+
+.nav-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-items {
+    width: 22px;
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    height: 13px;
+    background-color: #FF7E1B;
+    font-size: 12px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.user-avatar > img {
+    width: 40px;
+    height: 40px;
+}
+
+.user-avatar > img:hover {
+    border-radius: 50%;
+    border: 2px solid hsl(35, 77%, 62%);
+    cursor: pointer;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: hsl(0, 0%, 100%);
+    transform: translateX(-100%);
+    z-index: 4;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    color: hsl(240, 100%, 5%);
+    font-weight: 700;
+    list-style-type: none;
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu.active {
+    transform: translateX(0);
+    visibility: visible;
+}
+@media only screen and (max-width: 400px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .nav-right {
+        gap: 20px;
+    }
+
+    .nav-left {
+       gap: 15px;
+    }
+
+    .user-avatar > img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    
+}
